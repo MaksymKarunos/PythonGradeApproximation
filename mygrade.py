@@ -12,7 +12,7 @@ number_of_students = students.count(';')
 # average 56 % ; average grade = 33.04
 # stadtanrd deivation = 13.57
 def fill_the_grades():
-    for i in range(100000000):
+    for i in range(100000):
         index = 0
         list_of_grades = [52,63]
         for student in range(number_of_students-2):
@@ -27,7 +27,10 @@ def accurate_percentile(best_guesses, grade):
         better_than.append(my_percentile(np.array(best_list),grade))
     print(better_than)
     np_better_than = np.array(better_than)
-    plt.plot(np_better_than)
+    plt.scatter([i for i in range(len(np_better_than))], np_better_than)
+    plt.title("Karunos Grade percentile")
+    plt.xlabel("Variance of percentile")
+    plt.ylabel("Simulation number")
     plt.show()
     return np_better_than.sum()/number_of_students
 def my_percentile(np_list, grade):
@@ -42,7 +45,7 @@ best_guesses = fill_the_grades()
 percentile = accurate_percentile(best_guesses, 52)
 list_of_grades = best_guesses[0]
 np_list = np.array(list_of_grades)
-print("I am better than"  + str(percentile))
+print("I am better than "  + str(percentile))
 print("mean is " + str(np.mean(np_list)))
 print("standard deviation is " + str(np.std(np_list)))
 print(list_of_grades)
