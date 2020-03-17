@@ -22,11 +22,11 @@ lab_df = pd.DataFrame(lab_grades)
 lab_df.columns = ['labs']
 lab_df['lab_number'] = [i+1 for i in range(5)]
 lab_df['team_size'] = [1 if i < 2 else 2 for i in range(5) ]
+lab_df.to_csv('CS232/lab_df.csv')
 print(lab_df)
 sns.set_style('whitegrid') 
 sns.lmplot(y ='labs', x ='lab_number', data = lab_df)
 plt.show()
-lab_df.to_csv('/CS232/lab_df')
 # plt.plot(lab_grades)
 # plt.xlabel("Lab number")
 # plt.ylabel("Grade")
